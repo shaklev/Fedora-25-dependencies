@@ -31,3 +31,23 @@ sudo dnf install gnome-shell-extension-openweather -y
 # TMUX (help terminal)
 sudo dnf install tmux -y
 
+# Install nano
+dnf -y install nano -y
+
+# Install vlc
+dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+dnf -y install vlc -y
+
+#Install virtualenv
+pip3 install virtualenv -y
+
+#Install Google Chrome
+cat << EOF > /etc/yum.repos.d/google-chrome.repo
+[google-chrome]
+name=google-chrome - \$basearch
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+EOF
+dnf install google-chrome-stable -y
